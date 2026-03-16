@@ -320,6 +320,10 @@ body {
   visibility: hidden;
 }
 
+.section-anchor {
+  scroll-margin-top: 2rem;
+}
+
 @media screen and (max-width: 1023px) {
   .figure-grid.is-3,
   .figure-grid.is-4 {
