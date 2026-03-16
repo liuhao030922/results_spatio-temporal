@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Spatio-Temporal Reconnection for Multi-Robot Networks using Adaptive Prescribed-Time CBFs">
+  <meta name="keywords" content="Multi-Robot Systems; Networked Robots; Connectivity Maintenance; Control Barrier Functions; Prescribed-Time CBF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spatio-Temporal Reconnection for Multi-Robot Networks using Adaptive Prescribed-Time CBFs</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" type="image/svg+xml" href="./static/images/favicon.svg" />
+  <link rel="icon" type="image/png" href="./static/images/favicon.png" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="#overview">Overview</a>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Spatio-Temporal Reconnection for Multi-Robot Networks using Adaptive Prescribed-Time CBFs</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Hao Liu<sup>1</sup></span>,
+            <span class="author-block">Yupeng Yang<sup>2</sup></span>,
+            <span class="author-block">Yanze Zhang<sup>1</sup></span>,
+            <span class="author-block">Wenhao Luo<sup>1</sup></span>
+          </div>
+
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup> Department of Computer Science, University of Illinois Chicago</span><br>
+            <span class="author-block"><sup>2</sup> Department of Computer Science, University of North Carolina at Charlotte</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark" onclick="return false;">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (PDF)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark" onclick="return false;">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="" class="external-link button is-normal is-rounded is-dark" onclick="return false;">
+                  <span class="icon">
+                      <i class="fas fa-images"></i>
+                  </span>
+                  <span>Poster</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="overview">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <div class="content">
+          <p>
+            Multi-robot networks often need to exchange information, but requiring global connectivity at every instant can be overly restrictive.
+            This work enables temporary disconnections while guaranteeing reconnection within a prescribed time window.
+            We introduce an adaptive prescribed-time control barrier function (adaptive PT-CBF) and a spatio-temporal triggering mechanism
+            that balances task execution with reconnection urgency.
+          </p>
+          <p><b>Keywords:</b> Multi-Robot Systems, Networked Robots, Connectivity Maintenance</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Contributions</h3>
+        <div class="content">
+          <ul>
+            <li>Adaptive prescribed-time CBF that integrates finite-time and prescribed-time CBFs to automatically determine feasible convergence times.</li>
+            <li>Spatio-temporal reconnection mechanism that adaptively triggers reconnection and adjusts coordination patterns.</li>
+            <li>Theoretical guarantees and experimental validation demonstrating effectiveness, stability, and scalability.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In multi-robot systems, maintaining persistent communication graph connectivity is often overly restrictive,
+            especially when robots have limited communication ranges but operate in large environments. Allowing robots to
+            temporarily disconnect and later reconnect can improve task efficiency while still ensuring timely information
+            sharing across the team. We propose an adaptive prescribed-time control barrier function (adaptive PT-CBF)
+            framework that enables robots to temporarily disconnect and re-enter communication range within an adjustable
+            and feasible prescribed time. We introduce a reconnection triggering mechanism that jointly considers task
+            execution and reconnection urgency, providing a principled way to decide when reconnection should occur.
+            Theoretical analysis establishes convergence to satisfying reconnection within a prescribed finite time.
+            Experimental results validate the performance of the adaptive PT-CBF with improved task efficiency and
+            reconnection behavior.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="method">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+        <div class="content">
+          <h3 class="title is-4">Problem Statement</h3>
+          <p>
+            Each robot follows a nominal task controller while satisfying safety constraints and periodic reconnection
+            requirements. Over each reconnection window, the union of communication graphs must include a specified set
+            of edges at least once, while minimizing deviation from the nominal controller.
+          </p>
+
+          <h3 class="title is-4">Adaptive Prescribed-Time CBF</h3>
+          <p>
+            We combine finite-time CBF ideas with prescribed-time CBFs to automatically select feasible convergence times
+            and guarantee that robots re-enter the desired connectivity set before the prescribed deadline.
+          </p>
+
+          <h3 class="title is-4">Spatio-Temporal Reconnection Triggering</h3>
+          <p>
+            A spatio-temporal edge-weighting strategy activates and deactivates pairwise reconnection constraints within
+            each time window. The triggering rule jointly accounts for spatial effort and time urgency, so reconnection
+            is determined not only by how costly an edge is to recover, but also by how close the system is to the
+            prescribed deadline.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="results">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="content">
+          <h3 class="title is-4">Two-Robot Case</h3>
+          <p>
+            We compare Adaptive PT-CBF against FT-CBF and PT-CBF under the same temporal triggering schedule. Adaptive
+            PT-CBF reconnects earlier without requiring a manually tuned prescribed time, while FT-CBF slows near the
+            communication boundary and PT-CBF is highly sensitive to the chosen value of
+            <span class="math-inline">T<sub><span class="math-roman">p</span></sub></span>.
+          </p>
+          <figure class="paper-figure paper-figure-snapshots">
+            <div class="figure-grid is-3">
+              <div class="figure-card">
+                <img src="./figs/adaptivePTCBF_t0.png" alt="Two-robot snapshot at t equals 0 seconds under Adaptive PT-CBF before reconnection begins." loading="lazy">
+                <p class="subfigure-caption">(a) Adaptive PT-CBF, <span class="math-inline">t = 0<span class="math-roman">s</span></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/adaptivePTCBF_t=6.8s.png" alt="Two-robot snapshot at t equals 6.81 seconds under Adaptive PT-CBF as the robots reconnect." loading="lazy">
+                <p class="subfigure-caption">(b) Adaptive PT-CBF, <span class="math-inline">t = 6.81<span class="math-roman">s</span></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/adaptivePTCBF_t=15.jpg" alt="Two-robot snapshot at t equals 15 seconds under Adaptive PT-CBF after reconnection has been achieved." loading="lazy">
+                <p class="subfigure-caption">(c) Adaptive PT-CBF, <span class="math-inline">t = 15<span class="math-roman">s</span></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/FTCBF_t=15.png" alt="Two-robot snapshot at t equals 15 seconds under FT-CBF showing slower convergence." loading="lazy">
+                <p class="subfigure-caption">(d) FT-CBF, <span class="math-inline">t = 15<span class="math-roman">s</span></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/PTCBF_Tp=0.5.png" alt="Two-robot snapshot at t equals 15 seconds under PT-CBF with prescribed time 0.5 seconds, showing abrupt behavior." loading="lazy">
+                <p class="subfigure-caption">(e) PT-CBF (<span class="math-inline">T<sub><span class="math-roman">p</span></sub> = 0.5<span class="math-roman">s</span></span>), <span class="math-inline">t = 15<span class="math-roman">s</span></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/PTCBF_Tp=15.png" alt="Two-robot snapshot at t equals 15 seconds under PT-CBF with prescribed time 15 seconds, showing delayed reconnection." loading="lazy">
+                <p class="subfigure-caption">(f) PT-CBF (<span class="math-inline">T<sub><span class="math-roman">p</span></sub> = 15<span class="math-roman">s</span></span>), <span class="math-inline">t = 15<span class="math-roman">s</span></span></p>
+              </div>
+            </div>
+            <figcaption>Snapshots comparing reconnection performance for Adaptive PT-CBF, FT-CBF, and PT-CBF.</figcaption>
+            <p class="figure-description">
+              Adaptive PT-CBF reconnects the robots by 6.81 seconds and maintains smooth motion through the remainder of
+              the run. FT-CBF remains conservative near the boundary, while fixed PT-CBF settings can be either too
+              aggressive to be feasible or too slow to react.
+            </p>
+          </figure>
+
+          <figure class="paper-figure">
+            <div class="figure-grid is-4">
+              <div class="figure-card">
+                <img src="./figs/compare_edge_weight_python.png" alt="Plot comparing spatio-temporal edge weights over time for Adaptive PT-CBF, FT-CBF, and PT-CBF." loading="lazy">
+                <p class="subfigure-caption">(a) Spatio-Temporal weight</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/compare_hij_python.png" alt="Plot of communication-barrier values R sub c squared minus D sub i comma j squared for three methods." loading="lazy">
+                <p class="subfigure-caption">(b) <span class="math-inline">R<sub><span class="math-roman">c</span></sub><sup>2</sup> - D<sub>i,j</sub><sup>2</sup></span></p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/compare_interrobot_distance_python.png" alt="Plot of inter-robot distance over time relative to the communication threshold." loading="lazy">
+                <p class="subfigure-caption">(c) Inter-robot distance</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/compare_velocity_python.png" alt="Plot of average robot speed over time for Adaptive PT-CBF, FT-CBF, and PT-CBF." loading="lazy">
+                <p class="subfigure-caption">(d) Average speed</p>
+              </div>
+            </div>
+            <figcaption>
+              Comparison of the reconnection process under Adaptive PT-CBF, FT-CBF, and PT-CBF. The plots show the
+              spatio-temporal weight, communication-barrier value, inter-robot distance, and average speed.
+            </figcaption>
+            <p class="figure-description">
+              All methods share the same trigger-weight schedule for a fair comparison, but Adaptive PT-CBF reaches the
+              communication boundary earlier and with smoother control effort than the two baselines.
+            </p>
+          </figure>
+
+          <h3 class="title is-4">Multi-Robot Case</h3>
+          <p>
+            In CoppeliaSim, five Khepera robots patrol separate regions while Robot 1 must reconnect with Robots 2--5 at
+            least once within each 30-second window. The qualitative and quantitative comparisons below show how Adaptive
+            PT-CBF preserves the patrol task better than the MCCST [1] baseline that enforces persistent global connectivity.
+          </p>
+          <p class="reference-note">
+            [1] Wenhao Luo, Sha Yi, and Katia Sycara, "Behavior mixing with minimum global and subgroup connectivity
+            maintenance for large-scale multi-robot systems," in 2020 IEEE International Conference on Robotics and
+            Automation (ICRA), IEEE, 2020.
+          </p>
+          <figure class="paper-figure">
+            <div class="figure-grid is-3">
+              <div class="figure-card">
+                <img src="./figs/cop1.png" alt="Original five-robot patrol task with trajectories and no reconnection controller." loading="lazy">
+                <p class="subfigure-caption">(a) Original task</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/cop2.png" alt="Five-robot patrol trajectories under Adaptive PT-CBF with periodic reconnection edges restored as needed." loading="lazy">
+                <p class="subfigure-caption">(b) Our Adaptive PT-CBF</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/cop3.png" alt="Five-robot patrol trajectories under the MCCST baseline while persistent connectivity is enforced." loading="lazy">
+                <p class="subfigure-caption">(c) MCCST</p>
+              </div>
+            </div>
+            <figcaption>Simulation snapshots and trajectories for the original task, Adaptive PT-CBF, and the MCCST baseline.</figcaption>
+            <p class="figure-description">
+              Adaptive PT-CBF smoothly re-establishes the required communication edges while preserving patrol behavior.
+              MCCST maintains persistent global connectivity, but that added constraint pulls robots away from their nominal
+              targets and can leave the team in a connectivity-preserving deadlock.
+            </p>
+          </figure>
+
+          <figure class="paper-figure paper-figure-medium">
+            <div class="figure-grid is-2">
+              <div class="figure-card">
+                <img src="./figs/compare_average_distance.png" alt="Plot comparing average distance to the assigned patrol target for Adaptive PT-CBF and MCCST." loading="lazy">
+                <p class="subfigure-caption">(a) Average distance to target</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/compare_control_deviation.png" alt="Plot comparing average control deviation from the nominal controller for Adaptive PT-CBF and MCCST." loading="lazy">
+                <p class="subfigure-caption">(b) Average control deviation</p>
+              </div>
+            </div>
+            <figcaption>
+              Comparison between the proposed Adaptive PT-CBF method and the MCCST baseline. The second metric reports
+              the average control deviation from the nominal controller
+              <span class="math-inline">1/5 &Sigma;<sub>i=1</sub><sup>5</sup> &#8741;<span class="math-vector">u</span><sub>i</sub><sup><span class="math-roman">nom</span></sup> - <span class="math-vector">u</span><sub>i</sub><sup>*</sup>&#8741;</span>.
+            </figcaption>
+            <p class="figure-description">
+              Compared with MCCST, Adaptive PT-CBF keeps the robots closer to their assigned patrol targets and reduces
+              the amount of control modification needed to satisfy the periodic reconnection objective.
+            </p>
+          </figure>
+
+          <figure class="paper-figure">
+            <div class="single-figure-frame">
+              <img src="./figs/pair_completion_progress.png" alt="Cumulative progress plot showing when required communication edges are triggered and completed within each reconnection window." loading="lazy">
+            </div>
+            <figcaption>Cumulative trigger and reconnection progress of required communication edges.</figcaption>
+            <p class="figure-description">
+              The required edges are triggered before the deadline and completed within the same 30-second reconnection
+              window, matching the joint global connectivity specification in the paper.
+            </p>
+          </figure>
+
+          <h3 class="title is-4">Videos</h3>
+          <p>
+            Video comparisons for the multi-robot patrol task. The top row shows the default videos and the bottom row
+            shows the corresponding simulation videos.
+          </p>
+          <div class="video-grid">
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/original.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption video-caption-hidden" aria-hidden="true">(a) Original Task</p>
+            </div>
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/ours.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption video-caption-hidden" aria-hidden="true">(b) Our Adaptive PT-CBF</p>
+            </div>
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/MCCST.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption video-caption-hidden" aria-hidden="true">(c) MCCST</p>
+            </div>
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/original_sim.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption">(a) Original Task</p>
+            </div>
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/ours_sim.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption">(b) Our Adaptive PT-CBF</p>
+            </div>
+            <div class="video-panel">
+              <video class="comparison-video" autoplay muted playsinline preload="auto">
+                <source src="./videos/MCCST_sim.mp4?v=20260315" type="video/mp4">
+              </video>
+              <p class="video-caption">(c) MCCST</p>
+            </div>
+          </div>
+
+          <h3 class="title is-4">Quantitative Analysis</h3>
+          <p>
+            We further study how the controller scales with the number of robots and how the reconnection-window duration
+            <span class="math-inline">T<sub>max</sub><sup><span class="math-roman">reconn</span></sup></span> affects control effort. In both studies, Adaptive PT-CBF preserves efficient
+            reconnection with limited deviation from the nominal controller.
+          </p>
+          <figure class="paper-figure paper-figure-medium">
+            <div class="figure-grid is-2">
+              <div class="figure-card">
+                <img src="./figs/control_deviation_summary.png" alt="Quantitative plot of average control deviation as team size varies." loading="lazy">
+                <p class="subfigure-caption">(a) Average control deviation for varying team sizes</p>
+              </div>
+              <div class="figure-card">
+                <img src="./figs/control_deviation_multi_group.png" alt="Quantitative plot of average control deviation for different reconnection-window durations." loading="lazy">
+                <p class="subfigure-caption">(b) Average control deviation for different reconnection-window durations</p>
+              </div>
+            </div>
+            <figcaption>Quantitative results of Adaptive PT-CBF for varying team sizes and reconnection-window durations.</figcaption>
+            <p class="figure-description">
+              Control deviation increases only mildly as the team grows, and it consistently decreases when the robots
+              are given a longer window to complete the required reconnections.
+            </p>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="conclusion">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Conclusion</h2>
+        <div class="content">
+          <p>
+            We present an adaptive prescribed-time CBF framework for spatio-temporal reconnection in multi-robot systems.
+            The method integrates finite-time and prescribed-time mechanisms to guarantee reconnection within a prescribed
+            time window, and introduces a spatio-temporal triggering strategy to balance task execution with connectivity
+            maintenance. Experiments show earlier, smoother, and more reliable reconnection than PT-CBF and FT-CBF baselines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="acknowledgement">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-4 has-text-centered">Acknowledgement</h2>
+        <div class="content">
+          <p>This work was supported in part by the U.S. National Science Foundation under Award 2528997.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="bibtex">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code></code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+            This webpage template is based on the template used by <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and open-sourcing this template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script defer src="./static/js/bulma-carousel.min.js"></script>
+<script defer src="./static/js/bulma-slider.min.js"></script>
+<script defer src="./static/js/index.js?v=20260315"></script>
+
+</body>
+</html>
