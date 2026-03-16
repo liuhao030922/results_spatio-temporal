@@ -30,9 +30,10 @@ function initializeComparisonVideos() {
     return;
   }
 
-  var readyCount = 0;
-  var endedCount = 0;
+  var readyVideos = new Set();
+  var completedVideos = new Set();
   var hasStarted = false;
+  var isRestarting = false;
 
   function playVideo(video) {
     var promise = video.play();
@@ -41,9 +42,12 @@ function initializeComparisonVideos() {
     }
   }
 
-  function startSyncedPlayback() {
-    endedCount = 0;
+  function restartCycle() {
+    completedVideos.clear();
+    isRestarting = false;
+
     videos.forEach(function(video) {
+      video.pause();
       video.currentTime = 0;
     });
 
@@ -52,31 +56,55 @@ function initializeComparisonVideos() {
     });
   }
 
+  function maybeCompleteCycle(video) {
+    if (completedVideos.has(video)) {
+      return;
+    }
+
+    var duration = video.duration;
+    if (!Number.isFinite(duration) || duration <= 0) {
+      return;
+    }
+
+    if (video.ended || duration - video.currentTime <= 0.12) {
+      completedVideos.add(video);
+      video.pause();
+
+      if (completedVideos.size === videos.length && !isRestarting) {
+        isRestarting = true;
+        window.setTimeout(restartCycle, 120);
+      }
+    }
+  }
+
   videos.forEach(function(video) {
     video.muted = true;
     video.playsInline = true;
+    video.loop = false;
 
     var onReady = function() {
-      readyCount += 1;
+      readyVideos.add(video);
       video.removeEventListener('loadeddata', onReady);
       video.removeEventListener('canplay', onReady);
+      video.removeEventListener('loadedmetadata', onReady);
 
-      if (!hasStarted && readyCount === videos.length) {
+      if (!hasStarted && readyVideos.size === videos.length) {
         hasStarted = true;
-        startSyncedPlayback();
+        restartCycle();
       }
     };
 
     video.addEventListener('loadeddata', onReady);
     video.addEventListener('canplay', onReady);
+    video.addEventListener('loadedmetadata', onReady);
+    video.addEventListener('timeupdate', function() {
+      maybeCompleteCycle(video);
+    });
     video.addEventListener('ended', function() {
-      endedCount += 1;
-      if (endedCount === videos.length) {
-        startSyncedPlayback();
-      }
+      maybeCompleteCycle(video);
     });
 
-    if (video.readyState >= 3) {
+    if (video.readyState >= 1) {
       onReady();
     } else {
       video.load();
