@@ -288,6 +288,13 @@ body {
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: 1rem 0 2.5rem;
+  align-items: start;
+}
+
+.video-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .comparison-video {
@@ -309,15 +316,11 @@ body {
 }
 
 .video-caption {
-  margin-top: 0.55rem;
+  margin-top: 0;
   color: #334155;
   font-size: 0.95rem;
   line-height: 1.45;
   text-align: center;
-}
-
-.video-caption-hidden {
-  visibility: hidden;
 }
 
 .section-anchor {
