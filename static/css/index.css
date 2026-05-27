@@ -103,6 +103,41 @@ body {
   display: inline-block;
 }
 
+.school-logo-row {
+  margin-top: 0.7rem;
+  margin-bottom: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  transform: translateX(22px);
+}
+
+.school-logo {
+  display: block;
+  width: auto;
+  height: 92px;
+  object-fit: contain;
+}
+
+.school-logo-uic {
+  height: 88px;
+}
+
+.school-logo-uncc {
+  height: 86px;
+}
+
+.funding-note {
+  margin-top: 0.55rem;
+  margin-bottom: 0.25rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .publication-banner img {
 }
 
@@ -327,6 +362,54 @@ body {
   scroll-margin-top: 2rem;
 }
 
+#more-research .content p {
+  max-width: 56rem;
+  margin: 0 auto 0.75rem;
+  color: #4b5563;
+}
+
+.research-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.35rem 1.4rem;
+  border: 1px solid #dbe5f3;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-4px);
+  border-color: #b9cff3;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+}
+
+.research-card .title {
+  margin-bottom: 0.58rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: #1f2937;
+}
+
+.research-card .subtitle {
+  margin-bottom: 0;
+  line-height: 1.38;
+  color: #4b5563;
+}
+
+.research-actions {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  gap: 0.55rem;
+}
+
+.research-actions .button {
+  margin: 0 !important;
+}
+
 @media screen and (max-width: 1023px) {
   .figure-grid.is-3,
   .figure-grid.is-4 {
@@ -351,5 +434,26 @@ body {
 
   .video-grid {
     grid-template-columns: 1fr;
+  }
+
+  .school-logo-row {
+    gap: 1.3rem;
+    transform: translateX(14px);
+  }
+
+  .school-logo {
+    height: 76px;
+  }
+
+  .school-logo-uic {
+    height: 72px;
+  }
+
+  .school-logo-uncc {
+    height: 72px;
+  }
+
+  .research-card {
+    padding: 1.1rem 1rem;
   }
 }
